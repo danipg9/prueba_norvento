@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+Task Manager Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend en React v18.x con TypeScript para gestionar tareas consumiendo una API REST, estilizado con Material UI y con estado global gestionado mediante React Context. Este proyecto fue inicializado con Create React App.
 
-## Available Scripts
+Requisitos
+- Node.js: 20 o superior
+- npm: 8 o superior
 
-In the project directory, you can run:
+Instalación
 
-### `npm start`
+1. Navega al directorio del frontend:
+   cd front
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Instala las dependencias:
+   npm install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ejecución
 
-### `npm test`
+1. Inicia el servidor en modo desarrollo:
+   npm start
+   - Corre en http://localhost:3001
+   - Requiere que el backend esté corriendo en http://localhost:3000 (ver README del backend para configurarlo)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Rutas principales
+- /18: Formulario para registrar un nuevo usuario
+- /login: Formulario para iniciar sesión (con enlace a /register)
+- /tasks: Lista de tareas con funcionalidades CRUD (crear, leer, editar, eliminar)
 
-### `npm run build`
+Características
+- Autenticación con JWT gestionada mediante AuthContext y almacenada en localStorage
+- Lista de tareas y operaciones CRUD gestionadas mediante TaskContext
+- Estado global manejado con React Context (AuthContext y TaskContext)
+- Formularios validados (título obligatorio para tareas)
+- Estilos con Material UI usando componentes reutilizables (botones, tablas, diálogos)
+- Navegación con react-router-dom v6.x
+- Componentes modulares y reutilizables siguiendo buenas prácticas de React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tests unitarios
+- Ejecuta los tests:
+  npm test
+- Tests incluidos:
+  - TaskList: Verifica renderizado, edición y eliminación de tareas
+  - Auth: Verifica redirección tras login exitoso (si aplica)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Compilación para producción
+- Construye la aplicación para producción:
+  npm run build
+- Genera la carpeta build/ optimizada y lista para despliegue
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Personalización avanzada (Opcional)
+- Para personalizar configuraciones (Webpack, Babel, etc.):
+  npm run eject
+- Nota: Esta operación es irreversible y elimina la dependencia de Create React App.
 
-### `npm run eject`
+Notas
+- Asegúrate de que el backend esté corriendo en http://localhost:3000 antes de iniciar el frontend
+- Accede a la aplicación en http://localhost:3001
+- Los tokens JWT se gestionan en AuthContext y se envían en las cabeceras de las peticiones autenticadas
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Recursos
+- Documentación de Create React App: https://facebook.github.io/create-react-app/docs/getting-started
+- Documentación de React: https://reactjs.org/
